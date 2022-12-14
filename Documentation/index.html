@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>YTChannel Documentation</title>
+
+        <!-- CSS -->
+        <link type="text/css" rel="stylesheet" href="media/css/style.css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,400,300' rel='stylesheet' type='text/css'>
+        <link href="media/css/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="media/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+        <!-- JS -->
+        <script type="text/javascript" src="media/js/shCore.js"></script>
+        <script type="text/javascript" src="media/js/shBrushPhp.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <style type="text/css">
+            td.code .container {
+                display: block !important;
+            }
+            td.code .container:after {
+                display: block !important;
+            }
+            td.code .container:before {
+                display: block !important;
+            }
+            .syntaxhighlighter {
+                max-height: 300px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h2>YouTube Channels API PHP Class</h2>
+                <ul>
+                    <li><a href="http://themeforest.net/user/tatwerat-team" target="_blank">Tatwerat-Team</a></li>
+                    <li>http://www.abdo-host.com</li>
+                    <li>YTChannel - YouTube API PHP Class</li>
+                    <li> Email me at <strong>abdo.host@yahoo.com</strong></li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Setting up YTChannel</h3>
+                <div class="container">
+                    <p>test app key = AIzaSyCIuVnDuCtVW6IPvOKEC59Wxwn829mqpEk</p>
+                    <pre class="brush: php">
+require ('YT-Channel.php');
+$YT_Channel = new YTChannel('your app key');
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Channel Info</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channel_info('channel_id');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->channel_info($channel_id);</b>
+                    <pre class="brush: php">
+ Array
+(
+    [name] => Envato
+    [description] => Videos from Envato
+    [published_date] => 26/11/2007 22:47:21
+    [thumbnails] => Array
+        (
+            [default] => https://yt3.ggpht.com/-FqG6biYgK3Q/AAAAAAAAAAI/AAAAAAAAAAA/v9oefAdz-4Y/s88-c-k-no/photo.jpg
+            [medium] => https://yt3.ggpht.com/-FqG6biYgK3Q/AAAAAAAAAAI/AAAAAAAAAAA/v9oefAdz-4Y/s240-c-k-no/photo.jpg
+            [high] => https://yt3.ggpht.com/-FqG6biYgK3Q/AAAAAAAAAAI/AAAAAAAAAAA/v9oefAdz-4Y/s240-c-k-no/photo.jpg
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Channel Statistics</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channel_statistics('channel_id');
+                    </pre>
+                    data returns from function <b> $YT_Channel->channel_statistics($channel_id);</b>
+                    <pre class="brush: php">
+Array
+(
+    [videos_count] => 107
+    [comments_count] => 5
+    [views_count] => 699613
+    [subscribers_count] => 9229
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Channel Playlists</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channel_playlists('channel_id', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->channel_playlists($channel_id, $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [playlists_count] => 13
+    [playlists] => Array
+        (
+            [0] => Array
+                (
+                    [id] => PLXWu0OP8--WQqbSG3tsWnSpzezVgez3Ow
+                    [title] => Envato Remix Contest October 2015
+                    [published_date] => 29/10/2015 23:21:14
+                    [video_count] => 65
+                    [url] => https://www.youtube.com/playlist?list=PLXWu0OP8--WQqbSG3tsWnSpzezVgez3Ow
+                    [description] => 
+                    [thumbnails] => Array
+                        (
+                            [default] => https://i.ytimg.com/vi/0lYo-7V-OJM/default.jpg
+                            [medium] => https://i.ytimg.com/vi/0lYo-7V-OJM/mqdefault.jpg
+                            [high] => https://i.ytimg.com/vi/0lYo-7V-OJM/hqdefault.jpg
+                        )
+
+                )
+
+            [1] => Array
+                (
+                    [id] => PLXWu0OP8--WQZcdnx1OuIwQ2MEMT2ee8O
+                    [title] => Envato Master Classes
+                    [published_date] => 06/10/2015 03:13:17
+                    [video_count] => 4
+                    [url] => https://www.youtube.com/playlist?list=PLXWu0OP8--WQZcdnx1OuIwQ2MEMT2ee8O
+                    [description] => Webinars from some of Envato's brightest creatives.
+                    [thumbnails] => Array
+                        (
+                            [default] => https://i.ytimg.com/vi/1mO_QMYV-QE/default.jpg
+                            [medium] => https://i.ytimg.com/vi/1mO_QMYV-QE/mqdefault.jpg
+                            [high] => https://i.ytimg.com/vi/1mO_QMYV-QE/hqdefault.jpg
+                        )
+
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Channel Videos</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channel_videos('channel_id', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->channel_videos($channel_id, $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [0] => Array
+        (
+            [id] => dtTBglc_RRk
+            [title] => Sketch App for Beginners - Envato at Pause Fest
+            [url] => https://www.youtube.com/watch?v=dtTBglc_RRk
+            [published_date] => 24/06/2016 22:40:17
+            [view_count] => 2785
+            [rating_count] => 4.625
+            [author] => Envato
+            [keywords] => CJ Melegrito,Envato,Tuts+,Sketch,Pause Fest
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/dtTBglc_RRk/default.jpg
+                    [medium] => http://i.ytimg.com/vi/dtTBglc_RRk/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/dtTBglc_RRk/hqdefault.jpg
+                    [hd] => 
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r5---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?cnr=14&id=o-AKJwtzrkmAFuf9CJRKZjZW07Yj2VBN1z-CKzaNs-lcOX&sver=3&expire=1466822417&mime=video/mp4&pl=21&signature=6CF192E67292C3A7354975CE70D1BD779706601D.5963D58F29309D30A0E77F5D8FE3CB7191B7F39C&ip=196.130.56.128&mt=1466800356&lmt=1455620247816916&ms=au&itag=22&ratebypass=yes&source=youtube&dur=2973.175&mv=u&key=yt6&upn=D3bTvAW68w4&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&ipbits=0&fexp=9416126,9416891,9417656,9418778,9419452,9422596,9423867,9428398,9431012,9432047,9433096,9433380,9433425,9433946,9435526,9435876,9436048,9436606,9437066,9437553,9437688,9437982,9438157,9438764,9439338,9439652,9439890&mm=31&mn=sn-8vq54voxxb-j5pe&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r5---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?expire=1466822417&mime=video/webm&pl=21&ms=au&itag=43&mt=1466800356&mv=u&upn=D3bTvAW68w4&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&ipbits=0&mm=31&mn=sn-8vq54voxxb-j5pe&id=o-AKJwtzrkmAFuf9CJRKZjZW07Yj2VBN1z-CKzaNs-lcOX&sver=3&fexp=9416126,9416891,9417656,9418778,9419452,9422596,9423867,9428398,9431012,9432047,9433096,9433380,9433425,9433946,9435526,9435876,9436048,9436606,9437066,9437553,9437688,9437982,9438157,9438764,9439338,9439652,9439890&signature=5508FBF4A1FBDC1D4224AB8BB3B4A5EDF299402D.1C15E3D730796D16C89235FED34B150337D1141C&ip=196.130.56.128&lmt=1455493129951888&ratebypass=yes&source=youtube&dur=0.000&key=yt6&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r5---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?expire=1466822417&mime=video/mp4&pl=21&ms=au&itag=18&mt=1466800356&mv=u&upn=D3bTvAW68w4&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&ipbits=0&mm=31&mn=sn-8vq54voxxb-j5pe&id=o-AKJwtzrkmAFuf9CJRKZjZW07Yj2VBN1z-CKzaNs-lcOX&sver=3&fexp=9416126,9416891,9417656,9418778,9419452,9422596,9423867,9428398,9431012,9432047,9433096,9433380,9433425,9433946,9435526,9435876,9436048,9436606,9437066,9437553,9437688,9437982,9438157,9438764,9439338,9439652,9439890&signature=AA8439C36E2946A20EA2F3B9AB58C4859335267C.D8BED55E6965015C8EC15DB17EA5582A9D21B38C&ip=196.130.56.128&lmt=1455620125737258&ratebypass=yes&source=youtube&dur=2973.175&key=yt6&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r5---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?lmt=1455491763146557&ms=au&itag=17&source=youtube&dur=2973.222&mv=u&fexp=9416126,9416891,9417656,9418778,9419452,9422596,9423867,9428398,9431012,9432047,9433096,9433380,9433425,9433946,9435526,9435876,9436048,9436606,9437066,9437553,9437688,9437982,9438157,9438764,9439338,9439652,9439890&id=o-AKJwtzrkmAFuf9CJRKZjZW07Yj2VBN1z-CKzaNs-lcOX&key=yt6&upn=D3bTvAW68w4&signature=4E600D3E669032C13CCDCE10728CB89D9B0FFB1D.5510797C08273D78F421AA595317F8E64D183676&ip=196.130.56.128&mt=1466800356&sver=3&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&mime=video/3gpp&pl=21&expire=1466822417&mm=31&ipbits=0&mn=sn-8vq54voxxb-j5pe&signature=
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => AqcjdkPMPJA
+            [title] => Pause Fest 2016 Kickoff at Envato
+            [url] => https://www.youtube.com/watch?v=AqcjdkPMPJA
+            [published_date] => 24/06/2016 22:40:17
+            [view_count] => 464
+            [rating_count] => 5.0
+            [author] => Envato
+            [keywords] => envato,pause fest,Melbourne
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/AqcjdkPMPJA/default.jpg
+                    [medium] => http://i.ytimg.com/vi/AqcjdkPMPJA/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/AqcjdkPMPJA/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/AqcjdkPMPJA/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?ip=196.130.56.128&mime=video/mp4&itag=22&key=yt6&ipbits=0&dur=51.943&lmt=1455103774125522&signature=44F2B63E71847B6C0DA4DF7A299178D33738C80B.AA5C5B77406BD001B764A41A209D5083AEC832FD&sver=3&id=o-AOrU0207PIFjFjmdDj-tiMCA-a0fzQZPWHK-KOdW_IK2&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&source=youtube&mm=31&mn=sn-8vq54voxxb-j5pe&ratebypass=yes&expire=1466822417&cnr=14&pl=21&upn=2HRe6SDHna8&mt=1466800356&mv=u&fexp=9405185,9405964,9406993,9412913,9416126,9416891,9418404,9419451,9422596,9426977,9428398,9428657,9431012,9431887,9432424,9433043,9433096,9433380,9433946,9435483,9435526,9435876,9436048,9437066,9437077,9437553,9437954,9438288,9438663,9439652,9439848&ms=au&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/webm&itag=43&key=yt6&ipbits=0&lmt=1455104050525005&signature=BCFBC8345C594DA1C942160AA10B4F66EBC889D3.01822139566A6283D014A5F1085A30460F4BE70B&sver=3&expire=1466822417&pl=21&ip=196.130.56.128&dur=0.000&id=o-AOrU0207PIFjFjmdDj-tiMCA-a0fzQZPWHK-KOdW_IK2&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&source=youtube&mm=31&mn=sn-8vq54voxxb-j5pe&ratebypass=yes&upn=2HRe6SDHna8&mt=1466800356&mv=u&fexp=9405185,9405964,9406993,9412913,9416126,9416891,9418404,9419451,9422596,9426977,9428398,9428657,9431012,9431887,9432424,9433043,9433096,9433380,9433946,9435483,9435526,9435876,9436048,9437066,9437077,9437553,9437954,9438288,9438663,9439652,9439848&ms=au&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/mp4&itag=18&key=yt6&ipbits=0&lmt=1455103685328586&signature=50DF2CE4A1E843F3B77CCD4655C35ECEB219624D.06C1198AE8AC82E079A24FD55CF2C327493235F9&sver=3&expire=1466822417&pl=21&ip=196.130.56.128&dur=51.943&id=o-AOrU0207PIFjFjmdDj-tiMCA-a0fzQZPWHK-KOdW_IK2&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&source=youtube&mm=31&mn=sn-8vq54voxxb-j5pe&ratebypass=yes&upn=2HRe6SDHna8&mt=1466800356&mv=u&fexp=9405185,9405964,9406993,9412913,9416126,9416891,9418404,9419451,9422596,9426977,9428398,9428657,9431012,9431887,9432424,9433043,9433096,9433380,9433946,9435483,9435526,9435876,9436048,9437066,9437077,9437553,9437954,9438288,9438663,9439652,9439848&ms=au&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?source=youtube&mm=31&itag=17&key=yt6&mime=video/3gpp&ipbits=0&upn=2HRe6SDHna8&expire=1466822417&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&sver=3&mn=sn-8vq54voxxb-j5pe&ip=196.130.56.128&lmt=1455103673813779&signature=8E6379F90DD593EEB3096AC18244870AFBE70115.E11EDD8EB85185766173969D891713B3543D385B&pl=21&id=o-AOrU0207PIFjFjmdDj-tiMCA-a0fzQZPWHK-KOdW_IK2&dur=51.966&mt=1466800356&mv=u&fexp=9405185,9405964,9406993,9412913,9416126,9416891,9418404,9419451,9422596,9426977,9428398,9428657,9431012,9431887,9432424,9433043,9433096,9433380,9433946,9435483,9435526,9435876,9436048,9437066,9437077,9437553,9437954,9438288,9438663,9439652,9439848&ms=au&signature=
+                        )
+
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Playlist Videos</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->playlist_videos('playlist_id', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->playlist_videos($playlist_id, $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [0] => Array
+        (
+            [id] => uQBL7pSAXR8
+            [title] => Envato Stories - Muhammad (ThemeFusion)
+            [url] => https://www.youtube.com/watch?v=uQBL7pSAXR8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 52657
+            [rating_count] => 4.97837837838
+            [author] => Envato
+            [keywords] => Muhammad Haris,ThemeFusion,ThemeForest,Envato,Envato Stories,Inspirational,Web Development (Interest),Lahore (City/Town/Village),Pakistan (Country),Josh Janssen,Naysan Naraqi
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/uQBL7pSAXR8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/uQBL7pSAXR8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/uQBL7pSAXR8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/uQBL7pSAXR8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&mv=u&ipbits=0&ms=au&ip=196.130.56.128&ratebypass=yes&source=youtube&expire=1466822550&lmt=1411091239276701&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&itag=22&mt=1466800356&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=A03A1FD512916CF849BFF354DDD5B8F0EB3A4BB8.A02A2F07F5AF6CA78D01CB9BF11779E30850F15C&upn=xnL8-T230WU&mime=video/mp4&cnr=14&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=0.000&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=43&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=1FF91FA0AD1D00BD4BEE361085A7868AF60D3A7B.09CB5F9EA55F9998A891DDE971C161B11C80B47B&mime=video/webm&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1407612685054139&upn=xnL8-T230WU&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=18&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=3B93A8E08EBEC0593B04CCEB2655789A385D0B9D.935A03542DDFB3BCEA67B96926F4B60FD3CB2D78&mime=video/mp4&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1411091217634785&upn=xnL8-T230WU&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&ip=196.130.56.128&mv=u&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=235.078&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&itag=17&ipbits=0&ms=au&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&mime=video/3gpp&mt=1466800356&upn=xnL8-T230WU&source=youtube&signature=DB36C0121D2B990AAE8473D9CB42D10F7DB37F62.6EC62135201E11B160AA66A1282AF469E626B7DB&lmt=1407480621277783&expire=1466822550&signature=
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => SZEflIVnhH8
+            [title] => Envato Visits Their New Office
+            [url] => https://www.youtube.com/watch?v=SZEflIVnhH8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 37920
+            [rating_count] => 4.64444444444
+            [author] => Envato
+            [keywords] => Envato,Office,ThemeForest,GraphicRiver,Tuts+,Microlancer,Envato PTY LTD,VideoHive,CodeCanyon,AudioJungle
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/SZEflIVnhH8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/SZEflIVnhH8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/SZEflIVnhH8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/SZEflIVnhH8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632418727477&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&ipbits=0&signature=74977E11DBAB3220F724A153A243AF2E6662247B.1B717B4566120A6ED895DAF8FEE6F8F5F6186289&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&itag=22&mime=video/mp4&sver=3&ratebypass=yes&pl=21&cnr=14&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/webm&signature=2C0D910514B4CC8203D18FD4927FCF28AD4402F5.33F3E881220D8A110711583F75B0C13B159901F5&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1370412259005416&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=0.000&mm=31&mn=sn-8vq54voxxb-j5pe&itag=43&sver=3&pl=21&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/mp4&signature=A28C6FEAA50855E128EE2E8734E593B6540BC0AE.2593F0B4A62B52D01737F3BE9E9F0D5F44F4C6D3&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632402490296&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&mm=31&mn=sn-8vq54voxxb-j5pe&itag=18&sver=3&pl=21&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=17&ip=196.130.56.128&key=yt6&lmt=1387632402520956&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=120.325&pl=21&mime=video/3gpp&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&ipbits=0&signature=620E2AE0BCDAAC120673D742992AFDF90BDA2B3E.191665DB4B575880EAC22141BDB043A300401BEE&sver=3&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&signature=
+                        )
+
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Channel Search For Videos</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channel_search('channel_id', 'Happy Envato', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->channel_search($channel_id, $keyword = '', $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [0] => Array
+        (
+            [id] => uQBL7pSAXR8
+            [title] => Envato Stories - Muhammad (ThemeFusion)
+            [url] => https://www.youtube.com/watch?v=uQBL7pSAXR8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 52657
+            [rating_count] => 4.97837837838
+            [author] => Envato
+            [keywords] => Muhammad Haris,ThemeFusion,ThemeForest,Envato,Envato Stories,Inspirational,Web Development (Interest),Lahore (City/Town/Village),Pakistan (Country),Josh Janssen,Naysan Naraqi
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/uQBL7pSAXR8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/uQBL7pSAXR8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/uQBL7pSAXR8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/uQBL7pSAXR8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&mv=u&ipbits=0&ms=au&ip=196.130.56.128&ratebypass=yes&source=youtube&expire=1466822550&lmt=1411091239276701&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&itag=22&mt=1466800356&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=A03A1FD512916CF849BFF354DDD5B8F0EB3A4BB8.A02A2F07F5AF6CA78D01CB9BF11779E30850F15C&upn=xnL8-T230WU&mime=video/mp4&cnr=14&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=0.000&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=43&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=1FF91FA0AD1D00BD4BEE361085A7868AF60D3A7B.09CB5F9EA55F9998A891DDE971C161B11C80B47B&mime=video/webm&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1407612685054139&upn=xnL8-T230WU&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=18&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=3B93A8E08EBEC0593B04CCEB2655789A385D0B9D.935A03542DDFB3BCEA67B96926F4B60FD3CB2D78&mime=video/mp4&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1411091217634785&upn=xnL8-T230WU&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&ip=196.130.56.128&mv=u&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=235.078&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&itag=17&ipbits=0&ms=au&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&mime=video/3gpp&mt=1466800356&upn=xnL8-T230WU&source=youtube&signature=DB36C0121D2B990AAE8473D9CB42D10F7DB37F62.6EC62135201E11B160AA66A1282AF469E626B7DB&lmt=1407480621277783&expire=1466822550&signature=
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => SZEflIVnhH8
+            [title] => Envato Visits Their New Office
+            [url] => https://www.youtube.com/watch?v=SZEflIVnhH8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 37920
+            [rating_count] => 4.64444444444
+            [author] => Envato
+            [keywords] => Envato,Office,ThemeForest,GraphicRiver,Tuts+,Microlancer,Envato PTY LTD,VideoHive,CodeCanyon,AudioJungle
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/SZEflIVnhH8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/SZEflIVnhH8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/SZEflIVnhH8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/SZEflIVnhH8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632418727477&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&ipbits=0&signature=74977E11DBAB3220F724A153A243AF2E6662247B.1B717B4566120A6ED895DAF8FEE6F8F5F6186289&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&itag=22&mime=video/mp4&sver=3&ratebypass=yes&pl=21&cnr=14&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/webm&signature=2C0D910514B4CC8203D18FD4927FCF28AD4402F5.33F3E881220D8A110711583F75B0C13B159901F5&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1370412259005416&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=0.000&mm=31&mn=sn-8vq54voxxb-j5pe&itag=43&sver=3&pl=21&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/mp4&signature=A28C6FEAA50855E128EE2E8734E593B6540BC0AE.2593F0B4A62B52D01737F3BE9E9F0D5F44F4C6D3&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632402490296&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&mm=31&mn=sn-8vq54voxxb-j5pe&itag=18&sver=3&pl=21&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=17&ip=196.130.56.128&key=yt6&lmt=1387632402520956&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=120.325&pl=21&mime=video/3gpp&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&ipbits=0&signature=620E2AE0BCDAAC120673D742992AFDF90BDA2B3E.191665DB4B575880EAC22141BDB043A300401BEE&sver=3&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&signature=
+                        )
+
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <h3 id="setup">Get Channel Popular Videos</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channel_popular('channel_id', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->channel_popular($channel_id, $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [0] => Array
+        (
+            [id] => uQBL7pSAXR8
+            [title] => Envato Stories - Muhammad (ThemeFusion)
+            [url] => https://www.youtube.com/watch?v=uQBL7pSAXR8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 52657
+            [rating_count] => 4.97837837838
+            [author] => Envato
+            [keywords] => Muhammad Haris,ThemeFusion,ThemeForest,Envato,Envato Stories,Inspirational,Web Development (Interest),Lahore (City/Town/Village),Pakistan (Country),Josh Janssen,Naysan Naraqi
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/uQBL7pSAXR8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/uQBL7pSAXR8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/uQBL7pSAXR8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/uQBL7pSAXR8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&mv=u&ipbits=0&ms=au&ip=196.130.56.128&ratebypass=yes&source=youtube&expire=1466822550&lmt=1411091239276701&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&itag=22&mt=1466800356&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=A03A1FD512916CF849BFF354DDD5B8F0EB3A4BB8.A02A2F07F5AF6CA78D01CB9BF11779E30850F15C&upn=xnL8-T230WU&mime=video/mp4&cnr=14&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=0.000&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=43&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=1FF91FA0AD1D00BD4BEE361085A7868AF60D3A7B.09CB5F9EA55F9998A891DDE971C161B11C80B47B&mime=video/webm&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1407612685054139&upn=xnL8-T230WU&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=18&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=3B93A8E08EBEC0593B04CCEB2655789A385D0B9D.935A03542DDFB3BCEA67B96926F4B60FD3CB2D78&mime=video/mp4&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1411091217634785&upn=xnL8-T230WU&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&ip=196.130.56.128&mv=u&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=235.078&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&itag=17&ipbits=0&ms=au&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&mime=video/3gpp&mt=1466800356&upn=xnL8-T230WU&source=youtube&signature=DB36C0121D2B990AAE8473D9CB42D10F7DB37F62.6EC62135201E11B160AA66A1282AF469E626B7DB&lmt=1407480621277783&expire=1466822550&signature=
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => SZEflIVnhH8
+            [title] => Envato Visits Their New Office
+            [url] => https://www.youtube.com/watch?v=SZEflIVnhH8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 37920
+            [rating_count] => 4.64444444444
+            [author] => Envato
+            [keywords] => Envato,Office,ThemeForest,GraphicRiver,Tuts+,Microlancer,Envato PTY LTD,VideoHive,CodeCanyon,AudioJungle
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/SZEflIVnhH8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/SZEflIVnhH8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/SZEflIVnhH8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/SZEflIVnhH8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632418727477&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&ipbits=0&signature=74977E11DBAB3220F724A153A243AF2E6662247B.1B717B4566120A6ED895DAF8FEE6F8F5F6186289&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&itag=22&mime=video/mp4&sver=3&ratebypass=yes&pl=21&cnr=14&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/webm&signature=2C0D910514B4CC8203D18FD4927FCF28AD4402F5.33F3E881220D8A110711583F75B0C13B159901F5&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1370412259005416&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=0.000&mm=31&mn=sn-8vq54voxxb-j5pe&itag=43&sver=3&pl=21&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/mp4&signature=A28C6FEAA50855E128EE2E8734E593B6540BC0AE.2593F0B4A62B52D01737F3BE9E9F0D5F44F4C6D3&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632402490296&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&mm=31&mn=sn-8vq54voxxb-j5pe&itag=18&sver=3&pl=21&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=17&ip=196.130.56.128&key=yt6&lmt=1387632402520956&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=120.325&pl=21&mime=video/3gpp&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&ipbits=0&signature=620E2AE0BCDAAC120673D742992AFDF90BDA2B3E.191665DB4B575880EAC22141BDB043A300401BEE&sver=3&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&signature=
+                        )
+
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Related Videos</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->related_video('channel_id', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->related_video($channel_id, $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [0] => Array
+        (
+            [id] => uQBL7pSAXR8
+            [title] => Envato Stories - Muhammad (ThemeFusion)
+            [url] => https://www.youtube.com/watch?v=uQBL7pSAXR8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 52657
+            [rating_count] => 4.97837837838
+            [author] => Envato
+            [keywords] => Muhammad Haris,ThemeFusion,ThemeForest,Envato,Envato Stories,Inspirational,Web Development (Interest),Lahore (City/Town/Village),Pakistan (Country),Josh Janssen,Naysan Naraqi
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/uQBL7pSAXR8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/uQBL7pSAXR8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/uQBL7pSAXR8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/uQBL7pSAXR8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&mv=u&ipbits=0&ms=au&ip=196.130.56.128&ratebypass=yes&source=youtube&expire=1466822550&lmt=1411091239276701&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&itag=22&mt=1466800356&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=A03A1FD512916CF849BFF354DDD5B8F0EB3A4BB8.A02A2F07F5AF6CA78D01CB9BF11779E30850F15C&upn=xnL8-T230WU&mime=video/mp4&cnr=14&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=0.000&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=43&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=1FF91FA0AD1D00BD4BEE361085A7868AF60D3A7B.09CB5F9EA55F9998A891DDE971C161B11C80B47B&mime=video/webm&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1407612685054139&upn=xnL8-T230WU&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&mn=sn-8vq54voxxb-j5pe&mm=31&dur=234.985&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&mv=u&mt=1466800356&ms=au&ip=196.130.56.128&source=youtube&itag=18&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&signature=3B93A8E08EBEC0593B04CCEB2655789A385D0B9D.935A03542DDFB3BCEA67B96926F4B60FD3CB2D78&mime=video/mp4&key=yt6&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&pl=21&ipbits=0&ratebypass=yes&expire=1466822550&lmt=1411091217634785&upn=xnL8-T230WU&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r3---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?sver=3&ip=196.130.56.128&mv=u&key=yt6&mn=sn-8vq54voxxb-j5pe&mm=31&dur=235.078&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&id=o-ACnJ4rxIn7RJip6YNHMC_5fAjyJ4pO_JnJlhrk5LA7dM&pl=21&itag=17&ipbits=0&ms=au&fexp=9416126,9416891,9422596,9428398,9431012,9433096,9433380,9433946,9435526,9435876,9437066,9437552,9438117,9438336,9438662,9439652&mime=video/3gpp&mt=1466800356&upn=xnL8-T230WU&source=youtube&signature=DB36C0121D2B990AAE8473D9CB42D10F7DB37F62.6EC62135201E11B160AA66A1282AF469E626B7DB&lmt=1407480621277783&expire=1466822550&signature=
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => SZEflIVnhH8
+            [title] => Envato Visits Their New Office
+            [url] => https://www.youtube.com/watch?v=SZEflIVnhH8
+            [published_date] => 24/06/2016 22:42:30
+            [view_count] => 37920
+            [rating_count] => 4.64444444444
+            [author] => Envato
+            [keywords] => Envato,Office,ThemeForest,GraphicRiver,Tuts+,Microlancer,Envato PTY LTD,VideoHive,CodeCanyon,AudioJungle
+            [thumbnails] => Array
+                (
+                    [default] => http://i.ytimg.com/vi/SZEflIVnhH8/default.jpg
+                    [medium] => http://i.ytimg.com/vi/SZEflIVnhH8/mqdefault.jpg
+                    [high] => http://i.ytimg.com/vi/SZEflIVnhH8/hqdefault.jpg
+                    [hd] => http://i.ytimg.com/vi/SZEflIVnhH8/sddefault.jpg
+                )
+
+            [formats] => Array
+                (
+                    [hd720-mp4] => Array
+                        (
+                            [itag] => 22
+                            [quality] => hd720
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632418727477&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&ipbits=0&signature=74977E11DBAB3220F724A153A243AF2E6662247B.1B717B4566120A6ED895DAF8FEE6F8F5F6186289&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&itag=22&mime=video/mp4&sver=3&ratebypass=yes&pl=21&cnr=14&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&signature=
+                        )
+
+                    [medium-webm] => Array
+                        (
+                            [itag] => 43
+                            [quality] => medium
+                            [type] => video/webm
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/webm&signature=2C0D910514B4CC8203D18FD4927FCF28AD4402F5.33F3E881220D8A110711583F75B0C13B159901F5&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1370412259005416&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=0.000&mm=31&mn=sn-8vq54voxxb-j5pe&itag=43&sver=3&pl=21&signature=
+                        )
+
+                    [medium-mp4] => Array
+                        (
+                            [itag] => 18
+                            [quality] => medium
+                            [type] => video/mp4
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?mime=video/mp4&signature=A28C6FEAA50855E128EE2E8734E593B6540BC0AE.2593F0B4A62B52D01737F3BE9E9F0D5F44F4C6D3&upn=EBHWMg4oLes&ratebypass=yes&ipbits=0&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&ip=196.130.56.128&key=yt6&lmt=1387632402490296&source=youtube&ms=au&mt=1466800356&expire=1466822550&mv=u&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=119.977&mm=31&mn=sn-8vq54voxxb-j5pe&itag=18&sver=3&pl=21&signature=
+                        )
+
+                    [small-3gpp] => Array
+                        (
+                            [itag] => 17
+                            [quality] => small
+                            [type] => video/3gpp
+                            [url] => http://r2---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=17&ip=196.130.56.128&key=yt6&lmt=1387632402520956&mt=1466800356&ms=au&source=youtube&expire=1466822550&mv=u&fexp=9408208,9414702,9416126,9416778,9416891,9419451,9422596,9428398,9431012,9432564,9433096,9433205,9433380,9433946,9435526,9435732,9435876,9437066,9437552,9437649,9437981,9438338,9438600,9439652,9440135,9440263&id=o-ACVBbiA55nuaYQWM78HvhJyuNYJAWAirky9HJ8RpTfGb&dur=120.325&pl=21&mime=video/3gpp&mm=31&mn=sn-8vq54voxxb-j5pe&upn=EBHWMg4oLes&ipbits=0&signature=620E2AE0BCDAAC120673D742992AFDF90BDA2B3E.191665DB4B575880EAC22141BDB043A300401BEE&sver=3&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&signature=
+                        )
+
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Video Comments</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->video_comments('video_id', 2);
+                    </pre>
+                    data returns from function : <b> $YT_Channel->video_comments($id, $count = 10);</b>
+                    <pre class="brush: php">
+Array
+(
+    [comments_count] => 2
+    [comments] => Array
+        (
+            [0] => Array
+                (
+                    [id] => z12igrdw2yanz1qee232tl2ghku3irn4o04
+                    [text] => Happy birthday Envato! Stay awesome!﻿
+                    [published_date] => 28/09/2015 16:26:20
+                    [updated_date] => 28/09/2015 16:26:20
+                    [author] => Array
+                        (
+                            [name] => Marcos R. Rosa
+                            [image] => https://lh3.googleusercontent.com/-NeMgFEUb4uM/AAAAAAAAAAI/AAAAAAAAARk/azfNjyqafCU/photo.jpg?sz=50
+                            [channel_url] => http://www.youtube.com/channel/UCVawFTtuBXk_6BU7w2Ls7Bg
+                            [googleplus_url] => https://plus.google.com/104487784015855005989
+                        )
+
+                    [like_count] => 0
+                )
+
+            [1] => Array
+                (
+                    [id] => z125eb54mpyvdfdgb04cd12hzm3ovpax4i4
+                    [text] => Happy BirthDay!!﻿
+                    [published_date] => 05/09/2015 06:54:49
+                    [updated_date] => 05/09/2015 06:54:49
+                    [author] => Array
+                        (
+                            [name] => Jake Handling
+                            [image] => https://lh4.googleusercontent.com/-JLMmTr5aV_k/AAAAAAAAAAI/AAAAAAAAATQ/axo7rSKauB4/photo.jpg?sz=50
+                            [channel_url] => http://www.youtube.com/channel/UCvryBV2jHuRi7mA_v5Vkz8A
+                            [googleplus_url] => https://plus.google.com/104945011440675361336
+                        )
+
+                    [like_count] => 0
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Video Info</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->video_info('video_id');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->video_info($id);</b>
+                    <pre class="brush: php">
+Array
+(
+    [id] => efVWyPNd3xw
+    [title] => Collis Celebrates Envato's 9th Birthday
+    [url] => https://www.youtube.com/watch?v=efVWyPNd3xw
+    [published_date] => 24/06/2016 22:46:06
+    [view_count] => 6350
+    [rating_count] => 4.75757575758
+    [author] => Envato
+    [keywords] => Collis Ta'eed,Birthday,Envato,Vlog
+    [thumbnails] => Array
+        (
+            [default] => http://i.ytimg.com/vi/efVWyPNd3xw/default.jpg
+            [medium] => http://i.ytimg.com/vi/efVWyPNd3xw/mqdefault.jpg
+            [high] => http://i.ytimg.com/vi/efVWyPNd3xw/hqdefault.jpg
+            [hd] => http://i.ytimg.com/vi/efVWyPNd3xw/sddefault.jpg
+        )
+
+    [formats] => Array
+        (
+            [hd720-mp4] => Array
+                (
+                    [itag] => 22
+                    [quality] => hd720
+                    [type] => video/mp4
+                    [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?pl=21&id=o-AAN3pMkkJDe0WsZ0ge3Ulkr3oDMNNcWSe4tI_5L4YNsU&mn=sn-8vq54voxxb-j5pe&mm=31&itag=22&fexp=9405969,9416126,9416891,9418356,9419277,9419451,9422342,9422596,9425184,9428398,9431012,9433096,9433223,9433946,9435526,9435708,9435876,9436824,9437066,9437102,9437553,9438337,9438784,9438895,9439484,9439652,9439866,9439945,9440140&ms=au&ip=196.130.56.128&key=yt6&mime=video/mp4&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&mv=u&mt=1466800356&sver=3&dur=83.661&ipbits=0&expire=1466822766&ratebypass=yes&lmt=1440286722133398&signature=49E99AF557E6FC9BDC91ABEF09F19EC36ABA4805.3630D13EBE46B6A85780AF7FD3C11DF92B674074&cnr=14&upn=5y2VmJRip2A&source=youtube&signature=
+                )
+
+            [medium-webm] => Array
+                (
+                    [itag] => 43
+                    [quality] => medium
+                    [type] => video/webm
+                    [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=43&fexp=9405969,9416126,9416891,9418356,9419277,9419451,9422342,9422596,9425184,9428398,9431012,9433096,9433223,9433946,9435526,9435708,9435876,9436824,9437066,9437102,9437553,9438337,9438784,9438895,9439484,9439652,9439866,9439945,9440140&key=yt6&mime=video/webm&lmt=1440031071022764&signature=9055A09D7AB938AB9C42EBA2791D314B21C3854B.26DADBEB275050A778EB636F3C6C63089754E2DD&upn=5y2VmJRip2A&source=youtube&pl=21&id=o-AAN3pMkkJDe0WsZ0ge3Ulkr3oDMNNcWSe4tI_5L4YNsU&mn=sn-8vq54voxxb-j5pe&mm=31&ip=196.130.56.128&ms=au&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&mv=u&mt=1466800356&sver=3&dur=0.000&ipbits=0&expire=1466822766&ratebypass=yes&signature=
+                )
+
+            [medium-mp4] => Array
+                (
+                    [itag] => 18
+                    [quality] => medium
+                    [type] => video/mp4
+                    [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=18&fexp=9405969,9416126,9416891,9418356,9419277,9419451,9422342,9422596,9425184,9428398,9431012,9433096,9433223,9433946,9435526,9435708,9435876,9436824,9437066,9437102,9437553,9438337,9438784,9438895,9439484,9439652,9439866,9439945,9440140&key=yt6&mime=video/mp4&lmt=1440286623509700&signature=173305AED42C82507EC4878D82A3E84361D53B3F.60330192E0DCC8393A076A4D50D433E963B031E9&upn=5y2VmJRip2A&source=youtube&pl=21&id=o-AAN3pMkkJDe0WsZ0ge3Ulkr3oDMNNcWSe4tI_5L4YNsU&mn=sn-8vq54voxxb-j5pe&mm=31&ip=196.130.56.128&ms=au&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&mv=u&mt=1466800356&sver=3&dur=83.661&ipbits=0&expire=1466822766&ratebypass=yes&signature=
+                )
+
+            [small-3gpp] => Array
+                (
+                    [itag] => 17
+                    [quality] => small
+                    [type] => video/3gpp
+                    [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?pl=21&sver=3&id=o-AAN3pMkkJDe0WsZ0ge3Ulkr3oDMNNcWSe4tI_5L4YNsU&dur=83.684&mn=sn-8vq54voxxb-j5pe&mm=31&ipbits=0&itag=17&signature=3FD2795C1D365E3A6F06260FC9B6CB58A041B585.D84C807BD02EF41DD60B60F1888390D34B2B18C2&expire=1466822766&fexp=9405969,9416126,9416891,9418356,9419277,9419451,9422342,9422596,9425184,9428398,9431012,9433096,9433223,9433946,9435526,9435708,9435876,9436824,9437066,9437102,9437553,9438337,9438784,9438895,9439484,9439652,9439866,9439945,9440140&key=yt6&lmt=1440030162929986&ip=196.130.56.128&ms=au&mime=video/3gpp&mt=1466800356&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&mv=u&upn=5y2VmJRip2A&source=youtube&signature=
+                )
+
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Download Video</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->download_video('video_id');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->download_video($id);</b>
+                    <pre class="brush: php">
+Array
+(
+    [hd720-mp4] => Array
+        (
+            [quality] => hd720
+            [type] => video/mp4
+            [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?key=yt6&mime=video/mp4&sparams=cnr,dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&expire=1466822803&ipbits=0&upn=bWZ8FpvZxvE&fexp=9405976,9416126,9416891,9419451,9422596,9428398,9429693,9431012,9433096,9433221,9433946,9433995,9435186,9435252,9435526,9435673,9435876,9436027,9436082,9436879,9437066,9437553,9438337,9438660,9438764,9439365,9439652,9439681,9440048&ip=196.130.56.128&pl=21&lmt=1440286722133398&dur=83.661&signature=4E78FCB477D81F9A8244E62BDD0FA4CA1E1C292F.0F694E260D71604E4C12399811DDD06E1B3FB588&itag=22&source=youtube&mv=u&mt=1466800356&ratebypass=yes&ms=au&cnr=14&mn=sn-8vq54voxxb-j5pe&sver=3&mm=31&id=o-ANWB5f59lzN_RgnvZ2POJT-m_9FN_ohx48xReyIUrwAY&signature=
+        )
+
+    [medium-webm] => Array
+        (
+            [quality] => medium
+            [type] => video/webm
+            [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?ipbits=0&upn=bWZ8FpvZxvE&pl=21&signature=3BF5ECF2E6B79E939DC6DD2A4EE8F9FCF9DA3D92.1518268550202715BE6BE760AD9C2E6B4F5AD687&source=youtube&mv=u&mt=1466800356&ms=au&mn=sn-8vq54voxxb-j5pe&mm=31&id=o-ANWB5f59lzN_RgnvZ2POJT-m_9FN_ohx48xReyIUrwAY&key=yt6&mime=video/webm&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&expire=1466822803&fexp=9405976,9416126,9416891,9419451,9422596,9428398,9429693,9431012,9433096,9433221,9433946,9433995,9435186,9435252,9435526,9435673,9435876,9436027,9436082,9436879,9437066,9437553,9438337,9438660,9438764,9439365,9439652,9439681,9440048&ip=196.130.56.128&lmt=1440031071022764&dur=0.000&itag=43&ratebypass=yes&sver=3&signature=
+        )
+
+    [medium-mp4] => Array
+        (
+            [quality] => medium
+            [type] => video/mp4
+            [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?ipbits=0&upn=bWZ8FpvZxvE&pl=21&signature=DBAF0C6369CE2ADE0AA41BA8F02BFC325FDABE3A.223FDBB0F41F8436E4FD56C006F9C80C479A4F7B&source=youtube&mv=u&mt=1466800356&ms=au&mn=sn-8vq54voxxb-j5pe&mm=31&id=o-ANWB5f59lzN_RgnvZ2POJT-m_9FN_ohx48xReyIUrwAY&key=yt6&mime=video/mp4&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn,expire&expire=1466822803&fexp=9405976,9416126,9416891,9419451,9422596,9428398,9429693,9431012,9433096,9433221,9433946,9433995,9435186,9435252,9435526,9435673,9435876,9436027,9436082,9436879,9437066,9437553,9438337,9438660,9438764,9439365,9439652,9439681,9440048&ip=196.130.56.128&lmt=1440286623509700&dur=83.661&itag=18&ratebypass=yes&sver=3&signature=
+        )
+
+    [small-3gpp] => Array
+        (
+            [quality] => small
+            [type] => video/3gpp
+            [url] => http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?itag=17&key=yt6&source=youtube&mime=video/3gpp&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,source,upn,expire&sver=3&mv=u&ipbits=0&upn=bWZ8FpvZxvE&fexp=9405976,9416126,9416891,9419451,9422596,9428398,9429693,9431012,9433096,9433221,9433946,9433995,9435186,9435252,9435526,9435673,9435876,9436027,9436082,9436879,9437066,9437553,9438337,9438660,9438764,9439365,9439652,9439681,9440048&ms=au&signature=D2ABAF5C989EA069827A6C08966440BEC3D4A14D.9A28A0FE5B1FC3E382521306982E275E495706A2&mn=sn-8vq54voxxb-j5pe&pl=21&mm=31&dur=83.684&id=o-ANWB5f59lzN_RgnvZ2POJT-m_9FN_ohx48xReyIUrwAY&expire=1466822803&mt=1466800356&lmt=1440030162929986&ip=196.130.56.128&signature=
+        )
+
+)
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Iframe Video Plyer</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->iframe_video_player('video_id or video_url','550','300');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->iframe_video_player($id,$width,$height);</b>
+                    <br>
+                    <br>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/efVWyPNd3xw" frameborder="0" allowfullscreen
+                            ></iframe>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">HTML5 Video Plyer</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->html_video_player('video_id or video_url','550','300');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->html_video_player($id,$width,$height);</b>
+                    <br>
+                    <br>
+                    <video width="550" height="300" poster="http://i.ytimg.com/vi/efVWyPNd3xw/mqdefault.jpg" controls>
+                        <source src="http://r1---sn-8vq54voxxb-j5pe.googlevideo.com/videoplayback?ratebypass
+                                =yes&signature=51A276043DCD1EDE95152B60500EA3CED7804830.D9843111E005263518169EEA04B5451E70175E63&sver
+                                =3&pl=21&source=youtube&mime=video/mp4&itag=18&expire=1466823058&fexp=9416126,9416891,9419452,9422596
+                                ,9428398,9431012,9433096,9433380,9433946,9434075,9435187,9435526,9435876,9436085,9437066,9437553,9438337
+                                ,9439419,9439652,9439684&sparams=dur,id,ip,ipbits,itag,lmt,mime,mm,mn,ms,mv,pl,ratebypass,source,upn
+                                ,expire&mn=sn-8vq54voxxb-j5pe&mm=31&dur=83.661&lmt=1440286623509700&mv=u&mt=1466801209&ms=au&ip=196.130
+                                .56.128&key=yt6&ipbits=0&upn=Mxu167XcChA&id=o-APjnRXPuhvK0wzzt9xI-8dzx9vTrjr7kyxjS-fXFWJtj&signature
+                                =" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Channel ID From Username</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->channelID_byUsername('Envato');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->channelID_byUsername($username);</b>
+                    <pre class="brush: php">
+UCJr72fY4cTaNZv7WPbvjaSw
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Playlist ID by URL</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->playlistID_byUrl('https://www.youtube.com/playlist?list=PLXWu0OP8--WQBIFNjw_PuF_PEIc0KE4xa');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->playlistID_byUrl($url);</b>
+                    <pre class="brush: php">
+UCJr72fY4cTaNZv7WPbvjaSw
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get video ID by URL</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->videoID_byUrl('https://www.youtube.com/watch?v=EfTUpvxEbqc');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->videoID_byUrl($url);</b>
+                    <pre class="brush: php">
+EfTUpvxEbqc
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Get Search on All Youtube Videos</h3>
+                <div class="container">
+                    <pre class="brush: php">
+$YT_Channel->public_search('Enavto or Lessons or Cars or Natural');
+                    </pre>
+                    data returns from function : <b> $YT_Channel->public_search($keyword = '', $count = 10);</b>
+                    <pre class="brush: php">
+UCJr72fY4cTaNZv7WPbvjaSw
+                    </pre>
+                </div>
+            </div>
+
+            <div class="item">
+                <h3 id="setup">Dumb any returns array </h3>
+                <div class="container">
+                    <pre class="brush: php">
+// Example
+$video = $YT_Channel->video_info('video_id');
+$YT_Channel->dumb_array($video);
+
+/*You can put any function from YTCannel Class to dumb it*/
+
+OR
+
+$YT_Channel->dumb_array(array('text 1','text 2','text 3','text 4'));
+
+
+                    </pre>
+                    data returns from function : <b> $YT_Channel->dumb_array($array);</b>
+                </div>
+            </div>
+
+
+        </div>
+
+        <p style="text-align:center;">copyright 2015 <a href="http://themeforest.net/user/tatwerat-team">Tatwerat-Team</a></p>
+        <script>SyntaxHighlighter.all()</script>
+    </body>
+</html>
